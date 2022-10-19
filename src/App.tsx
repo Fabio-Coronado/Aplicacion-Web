@@ -1,25 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Container from '@mui/material/Container';
+import {StyledAppBar, StyledBox, StyledToolbar} from './styles'
+import { Routes, Route } from "react-router-dom";
+import Trending from './pages/Trending';
+import Movies from './pages/Movies';
+import Series from './pages/Series';
+import Search from './pages/Search';
+import NavigationBar from './components/NavigationBar';
+import { Typography } from '@mui/material';
 
-function App() {
+
+
+const App = () => {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StyledBox component='nav' display='flex' sx={{bgcolor: '#e5e3e9'}}>
+      <StyledAppBar bottom={'auto'} top = {0}  sx = {{borderBottom: 2, borderColor: "#0004859d" }} > 
+          <Typography variant='h2' align='center'  fontFamily={'Raleway'}>
+            Media Application
+          </Typography>
+
+      </StyledAppBar>
+    <Container maxWidth={false} >
+      <StyledBox component='body' display='inline' >
+        <StyledToolbar />
+        <Routes>
+          <Route path='/' element={<Trending />}/>
+          <Route path='/movies' element={<Movies />}/>
+          <Route path='/series' element={<Series />}/>
+          <Route path='/search' element={<Search />}/>
+        </Routes>
+        {/*<SearchContent /> */}
+        
+        <StyledToolbar />
+      </StyledBox>
+    </Container>
+
+      <StyledAppBar bottom={0} top = {'auto'} sx = {{borderTop: 2, borderColor: "#0004859d" }}>
+        <NavigationBar />
+      </StyledAppBar>
+    
+  
+      
+    </StyledBox>
   );
 }
 

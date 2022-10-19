@@ -1,0 +1,11 @@
+.alice-carousel {
+  width: calc(100vw - 50vw);
+  height: 190px;
+}
+
+@media screen and (max-width: 1200px) {
+  .alice-carousel {
+    width: calc(80vw);
+    height: 190px;
+  }
+}
